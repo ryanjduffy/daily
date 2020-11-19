@@ -1,0 +1,13 @@
+.schedule {
+	width: 100%;
+	height: 128px;
+	margin: 16px 0;
+}
+.item {
+	position: absolute;
+	background: #eeeeee88;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 8px;
+	height: 128px;
+}
