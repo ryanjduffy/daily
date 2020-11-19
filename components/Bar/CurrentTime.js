@@ -34,9 +34,10 @@ function timeToMinutes () {
 
 // eslint-disable-next-line no-shadow
 const CurrentTimeDecorator = Wrapped => function CurrentTimeDecorator (props) {
-	const [time, setTime] = useState(timeToMinutes());
+	const [time, setTime] = useState(0);
 
 	useEffect(() => {
+		setTime(timeToMinutes());
 		const id = setInterval(() => setTime(timeToMinutes()), 20000);
 
 		return () => clearInterval(id);
