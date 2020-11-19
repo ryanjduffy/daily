@@ -1,0 +1,37 @@
+.hour {
+	position: absolute;
+	height: 100%;
+	z-index: 10;
+	pointer-events: none;
+	border-left: 1px solid #00000080;
+}
+
+.hour label {
+	position: absolute;
+	bottom: 0;
+	font-size: 2rem;
+	color: rgba(0,0,0,0.5);
+}
+
+.tick::before,
+.tick::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+}
+
+.tick::before {
+	height: 25%;
+	left: 25%;
+	width: 50%;
+
+	border-left: 1px solid #00000080;
+	border-right: 1px solid #00000080;
+}
+
+.tick::after {
+	height: 50%;
+	left: 50%;
+
+	border-left: 1px solid #00000080;
+}

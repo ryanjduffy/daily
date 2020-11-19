@@ -1,0 +1,23 @@
+.bar {
+	margin: 16px;
+	height: 128px;
+	width: calc(100% - 32px);
+	overflow-x: scroll;
+}
+
+.content {
+	position: relative;
+	width: calc(100% * var(--bar-zoom, 1));
+	height: 100%;
+}
+
+.item {
+	position: absolute;
+	background: #eeeeee88;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	padding: 8px;
+	height: 100%;
+}
