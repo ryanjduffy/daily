@@ -15,18 +15,16 @@ const HourBase = kind({
 
 			return `${h % 12 || 12} ${h >= 12 ? 'pm' : 'am'}`;
 		},
-		style: ({endTime, startTime, style, hour}) => {
-			const factor = 100 / (endTime - startTime);
+		style: ({calculateTimeRatio, style, hour}) => {
 			return {
 				...style,
-				left: `${(hour - startTime) * factor}%`,
-				width: `${60 * factor}%`
+				left: `${calculateTimeRatio(hour)}%`,
+				width: `${calculateTimeRatio({time: 60, relative: false})}%`
 			};
 		}
 	},
 	render: ({children, componentRef, ...rest}) => {
-		delete rest.endTime;
-		delete rest.startTime;
+		delete rest.calculateTimeRatio;
 		delete rest.hour;
 
 		return (

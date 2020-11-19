@@ -9,7 +9,7 @@ const ScheduleBase = kind({
 		css,
 		className: 'schedule'
 	},
-	render: ({children, factor, startTime, ...rest}) => {
+	render: ({calculateTimeRatio, children, ...rest}) => {
 
 		return (
 			<div {...rest}>
@@ -18,8 +18,8 @@ const ScheduleBase = kind({
 
 					const style = {
 						background: color,
-						left: (start - startTime) * factor + '%',
-						width: duration * factor + '%'
+						left: `${calculateTimeRatio(start)}%`,
+						width: `${calculateTimeRatio({time: duration, relative: false})}%`
 					};
 
 					return (
