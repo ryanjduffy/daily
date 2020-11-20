@@ -6,6 +6,7 @@
 
 .content {
 	position: relative;
+	overflow: hidden;
 	width: calc(100% * var(--bar-zoom, 1));
 	height: 100%;
 }

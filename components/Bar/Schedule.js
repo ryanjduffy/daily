@@ -3,6 +3,12 @@ import React from 'react';
 
 import css from './Schedule.module.css';
 
+function forToday (child) {
+	if (child.day == null) return true;
+	const today = new Date().getDay();
+	return Array.isArray(child.day) ? child.day.includes(today) : child.day === today;
+}
+
 const ScheduleBase = kind({
 	name: 'ScheduleBase',
 	styles: {
@@ -13,7 +19,9 @@ const ScheduleBase = kind({
 
 		return (
 			<div {...rest}>
-				{children && children.map((child, index) => {
+				{children && children
+					.filter(forToday)
+					.map((child, index) => {
 					const {start, duration, color, icon, title} = child;
 
 					const style = {
